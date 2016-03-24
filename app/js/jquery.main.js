@@ -3,7 +3,7 @@
 
     $( function(){
 
-        $('.aside-menu__wrap').each(function() {
+        $( '.aside-menu__wrap' ).each( function() {
             Menu( $( this ) );
         });
 
