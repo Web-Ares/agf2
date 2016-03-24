@@ -28,7 +28,7 @@ var paths = {
     watchScripts: 'app/js/**/*.js',
     vendorScripts: 'app/js/vendors/**/*.js',
     images: 'app/img/**/*',
-    pictures: 'app/pic/**/*'
+    pic: 'app/pic/**/*'
 };
 
 
@@ -86,7 +86,7 @@ gulp.task('images', function() {
         .pipe(imagemin({optimizationLevel: 5}))
         .pipe(gulp.dest('dist/img'));
 });
-gulp.task('pictures', function() {
+gulp.task('pic', function() {
     return gulp.src(paths.images)
         .pipe(imagemin({optimizationLevel: 5}))
         .pipe(gulp.dest('dist/pic'));
@@ -95,13 +95,13 @@ gulp.task('pictures', function() {
 gulp.task('watch', function() {
     gulp.watch(paths.watchScripts,   ['scripts', browserSync.reload]);
     gulp.watch(paths.images,    ['images',  browserSync.reload]);
-    gulp.watch(paths.pictures,    ['pictures',  browserSync.reload]);
+    gulp.watch(paths.pic,    ['pic',  browserSync.reload]);
     gulp.watch(paths.styles,    ['styles']);
     gulp.watch(paths.views,     ['views',   browserSync.reload]);
 });
 
 function serve() {
-    return run('styles', 'scripts', 'vendorScripts', 'images', 'pictures', 'views', 'serve');
+    return run('styles', 'scripts', 'vendorScripts', 'images', 'pic', 'views', 'serve');
 }
 
 gulp.task('default', ['clean'], serve());
